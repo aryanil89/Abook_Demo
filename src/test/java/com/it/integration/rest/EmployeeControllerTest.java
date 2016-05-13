@@ -1,4 +1,4 @@
-package test.com.it.integration.rest;
+package com.it.integration.rest;
 
 import static org.junit.Assert.*;
 
@@ -45,7 +45,7 @@ public class EmployeeControllerTest {
 	  //Test RestTemplate to invoke the APIs.
 	  private RestTemplate restTemplate = new TestRestTemplate();
 	  
-	  //@Test
+	  @Test
 	  public void testSaveEmployeeApi() throws JsonProcessingException{
 		//Building the Request body data
 		  Map<String, Object> requestBody = new HashMap<String, Object>();
@@ -85,7 +85,7 @@ public class EmployeeControllerTest {
 		  
 	  }
 	  
-	  //@Test
+	  @Test
 	  public void testEmployeeEmployeeWithIdApi() throws IOException{
 		  //Building the Request body to insert data into database directly
 		  EmployeeEntity employeeEntity = new EmployeeEntity();
