@@ -63,7 +63,7 @@ public class EmployeeControllerTest {
 
 		  //Invoking the API
 		  Map<String, Object> apiResponse =
-		      restTemplate.postForObject("http://localhost:8085/adsbook/employee/add", httpEntity, Map.class, Collections.EMPTY_MAP);
+		      restTemplate.postForObject("http://localhost:8085/adsbook/employee/addEmployee", httpEntity, Map.class, Collections.EMPTY_MAP);
 		  assertNotNull(apiResponse);
 
 		  //Asserting the response of the API.
@@ -102,7 +102,7 @@ public class EmployeeControllerTest {
 		  HttpEntity<String> httpEntity =
 		      new HttpEntity<String>(requestHeaders);
 		  //Invoking the API
-		  String apiResponse = restTemplate.getForObject("http://localhost:8085/adsbook/employee/478738",String.class);
+		  String apiResponse = restTemplate.getForObject("http://localhost:8085/adsbook/employee/getEmployeeById/478738",String.class);
 		  JSONResult<EmployeeEntity> jsonResult = ( JSONResult<EmployeeEntity>) returnJsonResponseAsObject(apiResponse,
 		          new TypeReference<JSONResult<EmployeeEntity>>()
 		          {
