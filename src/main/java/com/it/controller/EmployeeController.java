@@ -100,7 +100,7 @@ public class EmployeeController {
 	//Rest controller method to update an employee details with input parameter employee id
 	@RequestMapping(value = "/employee/updateEmployee/{empId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> updateEmployee(
-			@Valid @RequestBody EmployeeEntity employee,
+			@Valid @RequestBody EmployeeEntity employee, @PathVariable long empId,
 			BindingResult bindingResults) {
 		//If the input parameter body has errors
 		if (bindingResults.hasErrors()) {
@@ -110,6 +110,7 @@ public class EmployeeController {
 					HttpStatus.BAD_REQUEST);
 		} else {
 			//service method call to update employee with employee id 
+			employee.setEmpId(empId);
 			String message = empService.updateEmployee(employee);
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 		}
